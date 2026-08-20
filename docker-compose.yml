@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:18
+    container_name: badminton_db
+    restart: always
+    environment:
+      POSTGRES_DB: badminton_shop
+      POSTGRES_USER: william
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      # Đã sửa thành postgres_data và mount vào /var/lib/postgresql theo chuẩn v18+
+      - postgres_data:/var/lib/postgresql
+
+  redis:
+    image: redis:8.10
+    container_name: badminton_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
