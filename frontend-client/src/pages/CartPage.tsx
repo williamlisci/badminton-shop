@@ -1,10 +1,19 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useCartStore } from '../store/cartStore'
+import { validateDiscount } from '../api/orders'
+import axios from 'axios'
 
 function CartPage() {
     const items = useCartStore((state) => state.items)
     const removeItem = useCartStore((state) => state.removeItem)
     const clearCart = useCartStore((state) => state.clearCart)
+    const discountCode = useCartStore((state) => state.discountCode)
+    const setDiscountCode = useCartStore((state) => state.setDiscountCode)
+    const [discountAmount, setDiscountAmount] = useState(0)
+    const [discountedTotal, setDiscountedTotal] = useState<number | null>(null)
+    const [discountMessage, setDiscountMessage] = useState('')
+    const [isValidating, setIsValidating] = useState(false)
 
     const total = items.reduce(
         (sum, item) => sum + Number(item.product.price) * item.quantity,
@@ -12,6 +21,39 @@ function CartPage() {
     )
     const addItem = useCartStore((state) => state.addItem)
     const decreaseItem = useCartStore((state) => state.decreaseItem)
+
+    const handleValidateDiscount = async () => {
+        const code = discountCode.trim().toUpperCase()
+        if (!code) {
+            setDiscountAmount(0)
+            setDiscountedTotal(null)
+            setDiscountMessage('Vui lòng nhập mã giảm giá.')
+            return
+        }
+        setIsValidating(true)
+        setDiscountMessage('')
+        try {
+            const result = await validateDiscount(
+                code,
+                items.map((item) => ({product_id: item.product.id, quantity: item.quantity})),
+            )
+            setDiscountAmount(Number(result.discount_amount))
+            setDiscountedTotal(Number(result.discounted_total))
+            setDiscountMessage('Mã giảm giá hợp lệ.')
+            setDiscountCode(code)
+        } catch (error) {
+            setDiscountAmount(0)
+            setDiscountedTotal(null)
+            if (axios.isAxiosError(error) && error.response?.data) {
+                const data = error.response.data as Record<string, unknown>
+                setDiscountMessage(Object.values(data).flat().join(' '))
+            } else {
+                setDiscountMessage('Không thể kiểm tra mã giảm giá. Vui lòng thử lại.')
+            }
+        } finally {
+            setIsValidating(false)
+        }
+    }
 
     if (items.length === 0) {
         return (
@@ -109,6 +151,18 @@ function CartPage() {
                     </p>
                 </div>
             </div>
+            <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50 p-4">
+                <label htmlFor="cart-discount-code" className="block text-sm font-semibold text-slate-700">Mã giảm giá</label>
+                <input id="cart-discount-code" value={discountCode} onChange={(event) => setDiscountCode(event.target.value.toUpperCase())} placeholder="Nhập mã giảm giá" className="mt-2 w-full rounded-lg border bg-white px-4 py-3 uppercase" />
+                <button type="button" onClick={handleValidateDiscount} disabled={isValidating} className="mt-3 rounded-lg bg-slate-800 px-4 py-2 text-sm text-white disabled:opacity-50">
+                    {isValidating ? 'Đang kiểm tra...' : 'Áp dụng mã'}
+                </button>
+                {discountMessage && <p className={`mt-2 text-sm ${discountAmount > 0 ? 'text-emerald-600' : 'text-red-600'}`}>{discountMessage}</p>}
+            </div>
+            {discountedTotal !== null && <div className="mt-6 text-right">
+                <p className="text-sm text-slate-500">Giảm giá: {discountAmount.toLocaleString('vi-VN')}₫</p>
+                <p className="text-2xl font-bold text-emerald-600">Tổng sau giảm: {discountedTotal.toLocaleString('vi-VN')}₫</p>
+            </div>}
             <div className="mt-6 text-right">
                 <Link
                     to="/checkout"

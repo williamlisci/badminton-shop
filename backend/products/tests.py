@@ -5,13 +5,64 @@ from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import reverse
 from PIL import Image
+from openpyxl import Workbook
 from rest_framework import status
 from rest_framework.test import APITestCase
 
 from .models import Brand, Category, Product, ProductImage
+from orders.models import Order, OrderItem
 
 
 User = get_user_model()
+
+
+class AdminProductImportExportTests(APITestCase):
+    def setUp(self):
+        self.category = Category.objects.create(name='Vợt')
+        self.brand = Brand.objects.create(name='Victor')
+        self.admin = User.objects.create_user(username='import-admin', password='pass', is_staff=True)
+        self.user = User.objects.create_user(username='import-user', password='pass')
+        self.import_url = reverse('admin-product-import')
+        self.export_url = reverse('admin-product-export')
+
+    def test_import_csv_reports_each_row_and_creates_only_valid_rows(self):
+        payload = (
+            'name,description,price,stock_quantity,is_active,category_id,brand_id\n'
+            f'Good,,100000,3,True,{self.category.id},{self.brand.id}\n'
+            f'Bad,,not-money,3,True,{self.category.id},{self.brand.id}\n'
+        )
+        self.client.force_authenticate(user=self.admin)
+        response = self.client.post(
+            self.import_url,
+            {'file': SimpleUploadedFile('products.csv', payload.encode(), content_type='text/csv')},
+            format='multipart',
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['success_count'], 1)
+        self.assertEqual(response.data['error_count'], 1)
+        self.assertEqual(response.data['errors'][0]['line'], 3)
+        self.assertTrue(Product.objects.filter(name='Good').exists())
+
+    def test_import_xlsx_and_export_require_admin(self):
+        workbook = Workbook()
+        sheet = workbook.active
+        sheet.append(['name', 'price', 'stock_quantity', 'category_id'])
+        sheet.append(['XLSX product', 120000, 2, self.category.id])
+        file_data = BytesIO()
+        workbook.save(file_data)
+        self.client.force_authenticate(user=self.user)
+        self.assertEqual(self.client.get(self.export_url).status_code, status.HTTP_403_FORBIDDEN)
+        self.client.force_authenticate(user=self.admin)
+        response = self.client.post(
+            self.import_url,
+            {'file': SimpleUploadedFile('products.xlsx', file_data.getvalue(),
+                                        content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')},
+            format='multipart',
+        )
+        self.assertEqual(response.data['success_count'], 1)
+        exported = self.client.get(self.export_url)
+        self.assertEqual(exported.status_code, status.HTTP_200_OK)
+        self.assertIn('XLSX product', exported.content.decode())
 
 
 
@@ -217,6 +268,39 @@ class AdminProductApiTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(ProductImage.objects.count(), 0)
 
+    def test_admin_can_set_primary_reorder_and_delete_images(self):
+        self.client.force_authenticate(user=self.admin_user)
+        image_url = reverse('admin-product-image-list')
+        image_ids = []
+        for name in ('first.png', 'second.png'):
+            response = self.client.post(
+                image_url,
+                {
+                    'product_id': self.product.id,
+                    'image': SimpleUploadedFile(name, one_pixel_png(), content_type='image/png'),
+                    'is_primary': 'false',
+                },
+                format='multipart',
+            )
+            self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+            image_ids.append(response.data['id'])
+        primary_response = self.client.post(
+            reverse('admin-product-image-set-primary', kwargs={'pk': image_ids[1]}),
+        )
+        self.assertEqual(primary_response.status_code, status.HTTP_200_OK)
+        reorder_response = self.client.post(
+            reverse('admin-product-image-reorder'),
+            {'product_id': self.product.id, 'image_ids': image_ids[::-1]},
+            format='json',
+        )
+        self.assertEqual(reorder_response.status_code, status.HTTP_200_OK)
+        delete_response = self.client.delete(
+            reverse('admin-product-image-detail', kwargs={'pk': image_ids[1]}),
+        )
+        self.assertEqual(delete_response.status_code, status.HTTP_204_NO_CONTENT)
+        remaining = ProductImage.objects.get(pk=image_ids[0])
+        self.assertTrue(remaining.is_primary)
+
 
 class PublicProductApiTests(APITestCase):
     def setUp(self):
@@ -250,6 +334,49 @@ class PublicProductApiTests(APITestCase):
         self.assertEqual(response.data[0]['category']['name'], 'Balo cầu lông')
         self.assertEqual(response.data[0]['brand']['name'], 'Victor')
 
+    def test_product_list_supports_filters_sorting_and_pagination(self):
+        response = self.client.get(
+            reverse('product-list'),
+            {'search': 'Victor', 'category__slug': 'balo-cau-long', 'brand__slug': 'victor', 'ordering': '-price', 'page': 1, 'page_size': 1},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['count'], 1)
+        self.assertEqual(len(response.data['results']), 1)
+
+    def test_product_list_can_sort_by_non_cancelled_sold_quantity(self):
+        popular = Product.objects.create(
+            category=self.active_product.category,
+            brand=self.active_product.brand,
+            name='Popular product',
+            price=Decimal('200000'),
+            stock_quantity=5,
+            is_active=True,
+        )
+        cancelled = Order.objects.create(
+            customer_name='A', customer_phone='0900000001',
+            shipping_address='Hà Nội', status=Order.Status.CANCELLED,
+        )
+        completed = Order.objects.create(
+            customer_name='B', customer_phone='0900000002',
+            shipping_address='Hà Nội', status=Order.Status.COMPLETED,
+        )
+        OrderItem.objects.create(
+            order=cancelled, product=self.active_product,
+            product_name=self.active_product.name, price=self.active_product.price,
+            quantity=20,
+        )
+        OrderItem.objects.create(
+            order=completed, product=popular,
+            product_name=popular.name, price=popular.price, quantity=3,
+        )
+
+        response = self.client.get(
+            reverse('product-list'), {'ordering': '-popularity'},
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data[0]['name'], 'Popular product')
+
     def test_product_detail_returns_nested_product_information(self):
         response = self.client.get(
             reverse(
@@ -276,3 +403,65 @@ class PublicProductApiTests(APITestCase):
         )
 
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+
+class AdminCatalogApiTests(APITestCase):
+    def setUp(self):
+        self.category = Category.objects.create(
+            name='Vợt cầu lông',
+            description='Danh mục vợt',
+        )
+        self.brand = Brand.objects.create(name='Victor')
+        self.admin_user = User.objects.create_user(
+            username='catalog-admin',
+            password='test-password',
+            is_staff=True,
+        )
+        self.regular_user = User.objects.create_user(
+            username='catalog-customer',
+            password='test-password',
+        )
+
+    def test_catalog_requires_admin(self):
+        response = self.client.get(reverse('admin-category-list'))
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+        self.client.force_authenticate(user=self.regular_user)
+        response = self.client.get(reverse('admin-brand-list'))
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_admin_can_create_update_and_hide_category(self):
+        self.client.force_authenticate(user=self.admin_user)
+        response = self.client.post(
+            reverse('admin-category-list'),
+            {'name': 'Giày cầu lông', 'description': '', 'is_active': True},
+            format='json',
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        category = Category.objects.get(name='Giày cầu lông')
+
+        response = self.client.patch(
+            reverse('admin-category-detail', kwargs={'pk': category.pk}),
+            {'name': 'Áo cầu lông'},
+            format='json',
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        category.refresh_from_db()
+        self.assertEqual(category.name, 'Áo cầu lông')
+
+        response = self.client.delete(
+            reverse('admin-category-detail', kwargs={'pk': category.pk}),
+        )
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        category.refresh_from_db()
+        self.assertFalse(category.is_active)
+
+    def test_admin_rejects_duplicate_catalog_slug(self):
+        self.client.force_authenticate(user=self.admin_user)
+        response = self.client.post(
+            reverse('admin-brand-list'),
+            {'name': 'Victor', 'is_active': True},
+            format='multipart',
+        )
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn('đã tồn tại', str(response.data))

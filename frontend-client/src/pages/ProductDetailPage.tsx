@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getProductBySlug } from '../api/products'
 import { useCartStore } from '../store/cartStore'
+import { addWishlist } from '../api/account'
 
 function ProductDetailPage() {
     const { slug } = useParams<{ slug: string }>()
@@ -88,6 +89,24 @@ function ProductDetailPage() {
                         className="mt-6 w-full bg-emerald-600 text-white py-3 rounded-lg font-medium hover:bg-emerald-700 transition-colors disabled:bg-slate-300"
                     >
                         {product.stock_quantity > 0 ? 'Thêm vào giỏ hàng' : 'Hết hàng'}
+                    </button>
+                    <button
+                        type="button"
+                        onClick={async () => {
+                            if (!localStorage.getItem('customer_access')) {
+                                window.location.href = '/account'
+                                return
+                            }
+                            try {
+                                await addWishlist(product.id)
+                                window.alert('Đã thêm vào danh sách yêu thích.')
+                            } catch {
+                                window.alert('Sản phẩm đã có trong danh sách yêu thích.')
+                            }
+                        }}
+                        className="mt-3 w-full rounded-lg border border-emerald-600 py-3 font-medium text-emerald-700"
+                    >
+                        ♡ Thêm vào yêu thích
                     </button>
 
                     {product.description && (

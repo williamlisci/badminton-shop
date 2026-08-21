@@ -42,6 +42,7 @@ function NewProductPage() {
                 name: String(formData.get('name')),
                 description: String(formData.get('description')),
                 price: String(formData.get('price')),
+                cost_price: String(formData.get('cost_price') || 0),
                 compare_at_price:
                     String(formData.get('compare_at_price') || '') || null,
                 stock_quantity: Number(formData.get('stock_quantity')),
@@ -100,6 +101,14 @@ function NewProductPage() {
                             type="number"
                             min="0"
                             placeholder="Giá bán"
+                            className="border rounded-lg px-4 py-3"
+                        />
+                        <input
+                            required
+                            name="cost_price"
+                            type="number"
+                            min="0"
+                            placeholder="Giá vốn"
                             className="border rounded-lg px-4 py-3"
                         />
 

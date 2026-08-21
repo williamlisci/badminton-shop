@@ -1,7 +1,7 @@
 import axios, { type InternalAxiosRequestConfig } from 'axios'
 
 export const apiClient = axios.create({
-    baseURL: 'http://127.0.0.1:8000/api',
+    baseURL: import.meta.env.VITE_API_URL,
     headers: {
         'Content-Type': 'application/json',
     },
@@ -27,6 +27,11 @@ apiClient.interceptors.response.use(
         const originalRequest = error.config as RetriableRequestConfig | undefined
         const refreshToken = sessionStorage.getItem('refresh_token')
         const isAuthRequest = originalRequest?.url?.includes('/auth/')
+
+        if (error.response?.status === 401 && !refreshToken && !isAuthRequest) {
+            sessionStorage.removeItem('access_token')
+            window.location.href = '/'
+        }
 
         if (
             error.response?.status !== 401 ||

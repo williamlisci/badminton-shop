@@ -1,6 +1,7 @@
 import {type SubmitEvent, useState } from 'react'
 import { login } from '../api/auth'
 import { useNavigate } from 'react-router-dom'
+import {useToastStore} from '../store/toastStore'
 
 function LoginPage() {
     const [username, setUsername] = useState('')
@@ -8,6 +9,7 @@ function LoginPage() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+    const {show: showToast} = useToastStore()
 
     const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -22,7 +24,7 @@ function LoginPage() {
             sessionStorage.setItem('access_token', data.access)
             sessionStorage.setItem('refresh_token', data.refresh)
 
-            alert('Đăng nhập thành công')
+            showToast('Đăng nhập thành công.')
             navigate('/dashboard')
         } catch {
             setError('Tên đăng nhập hoặc mật khẩu không đúng.')

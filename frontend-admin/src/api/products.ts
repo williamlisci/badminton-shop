@@ -6,6 +6,7 @@ export interface AdminProduct {
     slug: string
     description: string
     price: string
+    cost_price: string
     compare_at_price: string | null
     stock_quantity: number
     low_stock_threshold: number
@@ -85,18 +86,52 @@ export interface AdminCategory {
     id: number
     name: string
     slug: string
+    description?: string
+    is_active?: boolean
+    product_count?: number
 }
 
 export interface AdminBrand {
     id: number
     name: string
     slug: string
+    logo?: string | null
+    is_active?: boolean
 }
+
+export const getAdminCategories = async (): Promise<AdminCategory[]> => {
+    const response = await apiClient.get('/admin-categories/')
+    return response.data.results ?? response.data
+}
+
+export const saveAdminCategory = async (id: number | null, payload: {name: string; description: string; is_active: boolean}) => {
+    const response = id ? await apiClient.patch(`/admin-categories/${id}/`, payload) : await apiClient.post('/admin-categories/', payload)
+    return response.data
+}
+
+export const deleteAdminCategory = async (id: number) => apiClient.delete(`/admin-categories/${id}/`)
+
+export const getAdminBrands = async (): Promise<AdminBrand[]> => {
+    const response = await apiClient.get('/admin-brands/')
+    return response.data.results ?? response.data
+}
+
+export const saveAdminBrand = async (id: number | null, payload: {name: string; is_active: boolean; logo?: File | null}) => {
+    const formData = new FormData()
+    formData.append('name', payload.name)
+    formData.append('is_active', String(payload.is_active))
+    if (payload.logo) formData.append('logo', payload.logo)
+    const response = id ? await apiClient.patch(`/admin-brands/${id}/`, formData, {headers: {'Content-Type': 'multipart/form-data'}}) : await apiClient.post('/admin-brands/', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+    return response.data
+}
+
+export const deleteAdminBrand = async (id: number) => apiClient.delete(`/admin-brands/${id}/`)
 
 export interface CreateProductPayload {
     name: string
     description: string
     price: string
+    cost_price: string
     compare_at_price: string | null
     stock_quantity: number
     is_active: boolean
@@ -199,4 +234,58 @@ export const deleteProductImage = async (
     await apiClient.delete(
         `/admin-product-images/${imageId}/`,
     )
+}
+
+export const setPrimaryProductImage = async (imageId: number) => {
+    const response = await apiClient.post(`/admin-product-images/${imageId}/set-primary/`)
+    return response.data as AdminProductImage
+}
+
+export const reorderProductImages = async (productId: number, imageIds: number[]) => {
+    const response = await apiClient.post('/admin-product-images/reorder/', {
+        product_id: productId,
+        image_ids: imageIds,
+    })
+    return response.data as AdminProductImage[]
+}
+
+export interface ProductImportError {
+    line: number
+    errors: Record<string, string[]>
+}
+
+export interface ProductImportResult {
+    success_count: number
+    error_count: number
+    errors: ProductImportError[]
+}
+
+export const importProducts = async (file: File): Promise<ProductImportResult> => {
+    const formData = new FormData()
+    formData.append('file', file)
+    const response = await apiClient.post('/admin-products/import/', formData, {
+        headers: {'Content-Type': 'multipart/form-data'},
+    })
+    return response.data
+}
+
+export const exportProducts = async () => {
+    const response = await apiClient.get('/admin-products/export/', {responseType: 'blob'})
+    const url = URL.createObjectURL(response.data)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'products.csv'
+    link.click()
+    URL.revokeObjectURL(url)
+}
+
+export const downloadProductTemplate = () => {
+    const headers = 'name,description,price,compare_at_price,stock_quantity,low_stock_threshold,is_active,category_id,brand_id\n'
+    const blob = new Blob([headers], {type: 'text/csv;charset=utf-8'})
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'product-import-template.csv'
+    link.click()
+    URL.revokeObjectURL(url)
 }

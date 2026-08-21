@@ -54,6 +54,12 @@ function DashboardPage() {
                 <nav className="flex items-center gap-6">
                     <Link to="/dashboard" className="hover:underline">Dashboard</Link>
                     <Link to="/products" className="hover:underline">Sản phẩm</Link>
+                    <Link to="/catalog" className="hover:underline">Danh mục & thương hiệu</Link>
+                    <Link to="/discounts" className="hover:underline">Khuyến mãi</Link>
+                    <Link to="/customers" className="hover:underline">Khách hàng</Link>
+                    <Link to="/admin-users" className="hover:underline">Nhân viên</Link>
+                    <Link to="/audit-logs" className="hover:underline">Audit log</Link>
+                    <Link to="/reports" className="hover:underline">Báo cáo</Link>
                     <Link to="/orders" className="hover:underline">Đơn hàng</Link>
                     <button type="button" onClick={handleLogout} className="hover:underline">
                         Đăng xuất
