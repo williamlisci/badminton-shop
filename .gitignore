@@ -1,0 +1,14 @@
+# Node / Turborepo
+node_modules/
+.turbo/
+.cache/
+dist/
+.next/
+
+# Tệp môi trường bí mật
+.env
+.env*.local
+
+# Hệ điều hành
+.DS_Store
+Thumbs.db

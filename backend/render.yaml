@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: badminton-shop
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn badminton-shop.wsgi:application"

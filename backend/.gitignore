@@ -1,5 +1,16 @@
-venv/
-.env
+
+# Bộ nhớ đệm Python
 __pycache__/
-*.pyc
-db.sqlite3
+*.py[cod]
+*$py.class
+
+# Môi trường ảo Python
+venv/
+.venv/
+env/
+
+# Cơ sở dữ liệu local (nếu dùng SQLite)
+*.sqlite3
+
+# Tệp tĩnh được gom lại khi build
+staticfiles/
