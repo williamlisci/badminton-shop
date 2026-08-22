@@ -8,4 +8,5 @@
 - Đổi `.env` sang Neon, sau đó nạp fixture:
   `python manage.py loaddata data.json --verbosity 2`
 - đọc file ảnh local, re-upload lên Cloudinary, update lại Neon: python manage.py reupload_images
-- 
+- Trên Render bắt buộc khai báo `CLOUDINARY_URL` đúng dạng `cloudinary://API_KEY:API_SECRET@CLOUD_NAME`.
+- Sau khi cập nhật cấu hình, redeploy Render và kiểm tra API phải trả URL bắt đầu bằng `https://res.cloudinary.com/`, không phải `/media/`.

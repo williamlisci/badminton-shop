@@ -53,7 +53,15 @@ INSTALLED_APPS = [
     'orders'
 ]
 
-os.environ['CLOUDINARY_URL'] = config('CLOUDINARY_URL')
+# Keep the package configuration explicit for both Django's modern STORAGES API
+# and django-cloudinary-storage's legacy settings lookup.
+CLOUDINARY_URL = config('CLOUDINARY_URL')
+os.environ['CLOUDINARY_URL'] = CLOUDINARY_URL
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': CLOUDINARY_URL,
+    # Product image names already include their Cloudinary folder.
+    'PREFIX': '',
+}
 
 STORAGES = {
     "default": {
@@ -142,7 +150,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Email

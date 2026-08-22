@@ -1,7 +1,15 @@
 from rest_framework import serializers
 from PIL import Image, UnidentifiedImageError
 from django.utils.text import slugify
+from django.core.files.storage import default_storage
 from .models import Category, Brand, Product, ProductImage, StockTransaction
+
+
+def get_media_url(file_field):
+    name = file_field.name
+    if name.startswith('media/'):
+        name = name[6:]
+    return default_storage.url(name)
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -79,9 +87,14 @@ class AdminBrandSerializer(serializers.ModelSerializer):
 
 
 class ProductImageSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
     class Meta:
         model = ProductImage
         fields = ['id', 'image', 'is_primary', 'order']
+
+    def get_image(self, instance):
+        return get_media_url(instance.image)
 
 
 class AdminProductImageSerializer(serializers.ModelSerializer):
@@ -120,7 +133,8 @@ class ProductListSerializer(serializers.ModelSerializer):
         image = obj.images.filter(is_primary=True).first() or obj.images.first()
         if image:
             request = self.context.get('request')
-            return request.build_absolute_uri(image.image.url) if request else image.image.url
+            url = get_media_url(image.image)
+            return request.build_absolute_uri(url) if request else url
         return None
 
 

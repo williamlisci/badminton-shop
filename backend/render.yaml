@@ -3,4 +3,4 @@ services:
     name: badminton-shop
     env: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn badminton-shop.wsgi:application"
+    startCommand: "gunicorn config.wsgi:application"
