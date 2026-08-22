@@ -1,0 +1,4 @@
+- kết nối Django với Neon, migrate schema: python manage.py migrate
+- tạo superuser trên Neon: python manage.py createsuperuser
+- Test collectstatic: python manage.py collectstatic --noinput
+- 
