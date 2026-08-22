@@ -1,0 +1,1118 @@
+[
+{
+  "model": "products.category",
+  "pk": 1,
+  "fields": {
+    "name": "Vợt cầu lông",
+    "slug": "vot",
+    "description": "",
+    "is_active": true,
+    "created_at": "2026-08-16T20:09:07.579Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 2,
+  "fields": {
+    "name": "Quả cầu lông",
+    "slug": "qua",
+    "description": "",
+    "is_active": true,
+    "created_at": "2026-08-16T20:09:22.713Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 3,
+  "fields": {
+    "name": "Túi vợt cầu lông",
+    "slug": "tui-vot",
+    "description": "",
+    "is_active": true,
+    "created_at": "2026-08-16T20:09:37.563Z"
+  }
+},
+{
+  "model": "products.category",
+  "pk": 4,
+  "fields": {
+    "name": "Balo cầu lông",
+    "slug": "balo",
+    "description": "",
+    "is_active": true,
+    "created_at": "2026-08-16T20:09:50.969Z"
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 1,
+  "fields": {
+    "name": "Yonex",
+    "slug": "yonex",
+    "logo": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 2,
+  "fields": {
+    "name": "Victor",
+    "slug": "victor",
+    "logo": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.brand",
+  "pk": 3,
+  "fields": {
+    "name": "Lining",
+    "slug": "lining",
+    "logo": "",
+    "is_active": true
+  }
+},
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "brand": 2,
+    "name": "Vợt Cầu Lông Victor Thruster Ryuga II Pro CO26 (China Open 2026) New 2026 ( Tặng 01 Cước đan Yonex BG 66 Ultimax trị giá 180.000 vnđ )",
+    "slug": "vt-cu-long-victor-thruster-ryuga-ii-pro-co26-china-open-2026-new-2026-tng-01-cc-djan-yonex-bg-66-ultimax-tr-gia-180000-vndj",
+    "description": "⭐ Khung vợt: High ResilienceModulusGraphite + HARD CORED TECHNOLOGY\r\n⭐ Thân vợt: High ResilienceModulus Graphite + PYROFIL + 6.6SHAFT\r\n⭐ Độ Cứng: Cứng\r\n⭐ Điểm cân bằng: 300 mm\r\n⭐ Trọng lượng/Cán vợt: 3UG5,4UG6\r\n⭐ Mức căng tối đa: 3U-32 lbs (14.5kg), 4U-31lbs (14kg)",
+    "price": "3899000",
+    "cost_price": "0",
+    "compare_at_price": "3899000",
+    "stock_quantity": 96,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-16T20:12:36.124Z",
+    "updated_at": "2026-08-17T15:28:32.623Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "brand": 1,
+    "name": "Vợt Cầu Lông Yonex Astrox 10 New Xanh Dương Chính Hãng 2026 ( Tặng Cước đan Yonex BG 5 Match trị giá 110.000 VNĐ)",
+    "slug": "vt-cu-long-yonex-astrox-10-new-xanh-dng-chinh-hang-2026-tng-cc-djan-yonex-bg-5-match-tr-gia-110000-vndj",
+    "description": "Khung vợt: HM Graphite\r\n Thân vợt: HM Graphite\r\n Độ Cứng: Trung bình\r\n Điểm cân bằng: Hơi nặng đầu\r\n Trọng lượng/Cán vợt: 4U/G5\r\n Mức căng tối đa: 28 lbs\r\n Made in China",
+    "price": "939000",
+    "cost_price": "0",
+    "compare_at_price": "939000",
+    "stock_quantity": 500,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:19:37.527Z",
+    "updated_at": "2026-08-17T15:29:59.393Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "brand": 1,
+    "name": "Vợt Cầu Lông Yonex Astrox 10 New Xanh Chính Hãng 2026 ( Tặng Cước đan Yonex BG 5 Match trị giá 110.000 VNĐ)",
+    "slug": "vt-cu-long-yonex-astrox-10-new-xanh-chinh-hang-2026-tng-cc-djan-yonex-bg-5-match-tr-gia-110000-vndj",
+    "description": "Khung vợt: HM Graphite\r\n Thân vợt: HM Graphite\r\n Độ Cứng: Trung bình\r\n Điểm cân bằng: Hơi nặng đầu\r\n Trọng lượng/Cán vợt: 4U/G5\r\n Mức căng tối đa: 28 lbs\r\n Made in China",
+    "price": "939000",
+    "cost_price": "0",
+    "compare_at_price": "939000",
+    "stock_quantity": 400,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:21:05.875Z",
+    "updated_at": "2026-08-17T15:27:10.857Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "brand": 1,
+    "name": "Vợt Cầu Lông Yonex Astrox 10 Trắng Hồng Chính Hãng 2026 ( Tặng Cước đan Yonex BG 5 Match trị giá 110.000 VNĐ)",
+    "slug": "vt-cu-long-yonex-astrox-10-trng-hng-chinh-hang-2026-tng-cc-djan-yonex-bg-5-match-tr-gia-110000-vndj",
+    "description": "Khung vợt: HM Graphite\r\nThân vợt: HM Graphite\r\nĐộ Cứng: Trung bình\r\nĐiểm cân bằng: Hơi nặng đầu\r\nTrọng lượng/Cán vợt: 4U/G5\r\nMức căng tối đa: 28 lbs\r\nMade in China",
+    "price": "939000",
+    "cost_price": "0",
+    "compare_at_price": "939000",
+    "stock_quantity": 600,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:22:11.810Z",
+    "updated_at": "2026-08-17T15:26:01.907Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "brand": 1,
+    "name": "Vợt Cầu Lông Yonex Astrox 88S Pro 2024 Chính Hãng",
+    "slug": "vt-cu-long-yonex-astrox-88s-pro-2024-chinh-hang",
+    "description": "⭐ Khung vợt : HM Graphite + CFR + Tungsten\r\n⭐ Thân vợt: HM Graphite + 2G-Namd Flex Force + Ultra PE Fiber\r\n⭐ Độ Cứng: Cứng\r\n⭐ Điểm cân bằng: Hơi nặng đầu\r\n⭐ Trọng lượng/Cán vợt: 4U (Avg. 83g) G5,6 – 3U (Avg. 88g) G4,5,6\r\n⭐ Mức căng tối đa: 3U: 21-29 lbs; 4U: 20-28lbs\r\n⭐ Made in Japan.",
+    "price": "5298985",
+    "cost_price": "0",
+    "compare_at_price": "5299000",
+    "stock_quantity": 500,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:24:27.450Z",
+    "updated_at": "2026-08-17T15:24:27.450Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "brand": 1,
+    "name": "Vợt Cầu Lông Yonex Arcsaber 1 Clear – Trắng Chính Hãng 2026 ( Tặng 1 Cước đan Yonex BG 66 Ultimax trị giá 180.000 vnđ )",
+    "slug": "vt-cu-long-yonex-arcsaber-1-clear-trng-chinh-hang-2026-tng-1-cc-djan-yonex-bg-66-ultimax-tr-gia-180000-vndj",
+    "description": "Màu sắc: Trắng\r\n Chất liệu: HM Graphite\r\n Độ cân bằng: 295 +-2mm (Thân dẻo)\r\n Trọng lượng: 4UG5\r\n Mức căng dây: 30LBS",
+    "price": "739000",
+    "cost_price": "0",
+    "compare_at_price": "739000",
+    "stock_quantity": 10,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:32:54.196Z",
+    "updated_at": "2026-08-17T15:32:54.196Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "category": 1,
+    "brand": 1,
+    "name": "Vợt Cầu Lông Yonex Arcsaber 1 Feel – Tím Chính Hãng 2026 ( Tặng 1 Cước đan Yonex BG 66 Ultimax trị giá 180.000 vnđ )",
+    "slug": "vt-cu-long-yonex-arcsaber-1-feel-tim-chinh-hang-2026-tng-1-cc-djan-yonex-bg-66-ultimax-tr-gia-180000-vndj",
+    "description": "Màu sắc: Tím\r\n Chất liệu: HM Graphite\r\n Độ cân bằng: 295 +-2mm (Thân dẻo)\r\n Trọng lượng: 4UG5\r\n Mức căng dây: 30LBS",
+    "price": "739000",
+    "cost_price": "0",
+    "compare_at_price": "739000",
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:33:55.394Z",
+    "updated_at": "2026-08-17T15:33:55.394Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "category": 1,
+    "brand": 1,
+    "name": "Vợt Cầu Lông Yonex Arcsaber 1 Ability – Đen Đỏ Chính Hãng 2026 ( Tặng 1 Cước đan Yonex BG 66 Ultimax trị giá 180.000 vnđ )",
+    "slug": "vt-cu-long-yonex-arcsaber-1-ability-djen-dj-chinh-hang-2026-tng-1-cc-djan-yonex-bg-66-ultimax-tr-gia-180000-vndj",
+    "description": "Màu sắc: Đỏ đen\r\n Chất liệu: HM Graphite\r\n Độ cân bằng: 295 +-2mm (Thân dẻo)\r\n Trọng lượng: 4UG5\r\n Mức căng dây: 30LBS",
+    "price": "739000",
+    "cost_price": "0",
+    "compare_at_price": "739000",
+    "stock_quantity": 100,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:35:02.221Z",
+    "updated_at": "2026-08-17T15:35:02.221Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "category": 1,
+    "brand": 3,
+    "name": "Vợt cầu lông Lining Axforce 90 Tết T𝐋𝐈𝐌𝐈𝐓𝐄𝐃 𝐄𝐃𝐈𝐓𝐈𝐎𝐍 2026 ( Tặng 1 Cước đan Yonex BG 66 Ultimax trị giá 180.000 vnđ )",
+    "slug": "vt-cu-long-lining-axforce-90-tt-t-2026-tng-1-cc-djan-yonex-bg-66-ultimax-tr-gia-180000-vndj",
+    "description": "⭐ Mã sản phẩm: AxForce 90  2026\r\n⭐ Khung Vợt: M46 + T1100 + Ultra Carbon, Vật liệu lưu trữ năng lượng polymer và hấp thụ sốc\r\n⭐ Thân vợt: M46 + T1100 + Ultra Carbon, Hệ thống hấp thụ sốc mật độ cao\r\n⭐ Trọng lượng: 4U/83gram, 3U/87gram\r\n⭐ Độ Cứng: Cứng\r\n⭐ Chu vi cán vợt: G5\r\n⭐ Chiều dài tổng thể: 675mm\r\n⭐ Điểm cân bằng: Nặng đầu\r\n⭐ Mức căng dây vợt: 30lbs\r\n⭐ Sản xuất: China",
+    "price": "5199000",
+    "cost_price": "0",
+    "compare_at_price": "5199000",
+    "stock_quantity": 200,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:37:06.687Z",
+    "updated_at": "2026-08-17T15:37:06.687Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "category": 1,
+    "brand": 3,
+    "name": "Vợt Cầu Lông Lining Axforce 60 Pink Ngựa Tết 2026 Chính Hãng",
+    "slug": "vt-cu-long-lining-axforce-60-pink-nga-tt-2026-chinh-hang",
+    "description": "⭐Mã sản phẩm: AxForce 60 Pink 2026\r\n⭐Khung Vợt: High Carbon Fiber , Axforce Frame, TB Nano, Stabilized Shaft\r\n⭐Thân vợt: Axforce Frame, TB Nano, Stabilized Shaft\r\n⭐Trọng lượng: 5U (~75–79g)\r\n⭐Độ Cứng: Trung bình\r\n⭐Chu vi cán vợt: G5\r\n⭐Chiều dài tổng thể: 675mm\r\n⭐Điểm cân bằng: Hơi nặng đầu (~295 mm)\r\n⭐Mức căng dây vợt: 30lbs\r\n⭐Sản xuất: China",
+    "price": "3849000",
+    "cost_price": "0",
+    "compare_at_price": "3849000",
+    "stock_quantity": 40,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:38:02.245Z",
+    "updated_at": "2026-08-17T15:38:02.245Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "category": 1,
+    "brand": 3,
+    "name": "Vợt Cầu Lông Lining Bladex 800 Power Chính Hãng 2026",
+    "slug": "vt-cu-long-lining-bladex-800-power-chinh-hang-2026",
+    "description": "Mã SP: Lining Bladex 800 Power\r\nĐộ cứng: Cứng\r\nThân vợt: M46 + ULTRA CARBON\r\nKhung vợt: CARBON FIBER\r\nĐiểm cân bằng: 290mm\r\nChu vi cán vợt: S2, 675mm\r\nMức căng dây: 3U – 31lbs (14.kg)",
+    "price": "4490000",
+    "cost_price": "0",
+    "compare_at_price": "4490000",
+    "stock_quantity": 200,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:39:38.143Z",
+    "updated_at": "2026-08-17T15:39:38.143Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "category": 1,
+    "brand": 3,
+    "name": "Vợt Cầu Lông Lining Axforce Cannon Pro Ngựa Tết Limited Chính Hãng 2026",
+    "slug": "vt-cu-long-lining-axforce-cannon-pro-nga-tt-limited-chinh-hang-2026",
+    "description": "Mã sản phẩm: Lining Axforce Cannon Pro Red\r\n Màu sắc: Red\r\n Độ Cứng: Trung Bình\r\n Điểm cân bằng: 296mm\r\n Khung vợt: High Carbon\r\n Thân vợt: High Carbon\r\n Trọng lượng: 4U, 5U\r\n Chu vi cán vợt: G5\r\n Mức căng: 28lbs",
+    "price": "2549000",
+    "cost_price": "0",
+    "compare_at_price": "2549000",
+    "stock_quantity": 500,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:41:06.303Z",
+    "updated_at": "2026-08-17T15:41:06.303Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "category": 1,
+    "brand": 3,
+    "name": "Vợt Cầu Lông Lining Axforce 100 II Gen 2 Chính Hãng 2026",
+    "slug": "vt-cu-long-lining-axforce-100-ii-gen-2-chinh-hang-2026",
+    "description": "⭐Độ cứng: Cứng\r\n⭐Khung vợt: M50 + M40X + Sợi Carbon\r\n⭐Thân vợt: M50 + T1100 + Sợi Carbon\r\n⭐Trọng lượng/Chu vi: 4U/82gr; 3U/86gr\r\n⭐Điểm cân bằng: 308+-1mm (Nặng Đầu)\r\n⭐Mức căng dây tối đa: 3U-31LBS/ 4U-30LBS\r\n⭐Tay cầm: S2 (215mm)\r\n⭐Màu sắc: Xanh Green\r\n⭐Chiều dài tổng thể: 675mm\r\n⭐Công Nghệ NEW: 6.2 mm Hark Flexible Shaft, T1100 + TB Nano + High Desnsity Carbon Fiber, ACC-Rif Tech, HDF Shock Absorption System",
+    "price": "5599000",
+    "cost_price": "0",
+    "compare_at_price": "5599000",
+    "stock_quantity": 800,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:42:04.719Z",
+    "updated_at": "2026-08-17T15:42:04.719Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "category": 1,
+    "brand": 3,
+    "name": "Vợt Cầu Lông Lining Bladex 880 Shida Chính Hãng 2026",
+    "slug": "vt-cu-long-lining-bladex-880-shida-chinh-hang-2026",
+    "description": "– Độ cứng: Cứng\r\n– Thân vợt: T1100 + Ultra High Elastic Carbon Fiber + vật liệu giảm chấn mật độ cao\r\n– Khung vợt: M46X Ultra Carbon Fiber + Ultra High Elastic Carbon Fiber\r\n– Điểm cân bằng: 290mm\r\n– Chu vi cán vợt: S2, 675mm\r\n– Mức căng dây: 3U – 31lbs (14.kg)",
+    "price": "5699000",
+    "cost_price": "0",
+    "compare_at_price": "5699000",
+    "stock_quantity": 333,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:45:54.239Z",
+    "updated_at": "2026-08-17T15:45:54.239Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "category": 2,
+    "brand": 1,
+    "name": "Quả cầu lông Yonex Aerosensa 10 (AS 10) Chính Hãng 2026",
+    "slug": "qu-cu-long-yonex-aerosensa-10-as-10-chinh-hang-2026",
+    "description": "Quả cầu lông Yonex Aerosensa 10 (AS 10) Chính Hãng gồm 12 quả cầu chứa bên trong nổi trội về độ cao cấp hàng đầu thế giới và là loại cầu lông được công nhận chính thức cho các giải đấu quốc tế trên toàn cầu. Những quả cầu lông này là lựa chọn hàng đầu cho mọi loại giải đấu. Yonex đã sử dụng quy trình kỹ thuật chính xác để phát triển cầu lông để người chơi cầu lông luôn có được cầu lông chất lượng tốt nhất.",
+    "price": "829000",
+    "cost_price": "0",
+    "compare_at_price": "829000",
+    "stock_quantity": 1000,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:48:27.256Z",
+    "updated_at": "2026-08-17T15:48:27.256Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "category": 2,
+    "brand": 1,
+    "name": "Quả cầu lông Yonex Aerosensa 20 (AS 20) Chính Hãng 2026",
+    "slug": "qu-cu-long-yonex-aerosensa-20-as-20-chinh-hang-2026",
+    "description": "Quả cầu lông Yonex Aerosensa 20 (AS 20) Chính Hãng gồm 12 quả cầu chứa bên trong nổi trội về độ cao cấp hàng đầu thế giới và là loại cầu lông được công nhận chính thức cho các giải đấu quốc tế trên toàn cầu. Những quả cầu lông này là lựa chọn hàng đầu cho mọi loại giải đấu. Yonex đã sử dụng quy trình kỹ thuật chính xác để phát triển cầu lông để người chơi cầu lông luôn có được cầu lông chất lượng tốt nhất.",
+    "price": "1129000",
+    "cost_price": "0",
+    "compare_at_price": "1129000",
+    "stock_quantity": 888,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:49:40.322Z",
+    "updated_at": "2026-08-17T15:49:40.322Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 17,
+  "fields": {
+    "category": 3,
+    "brand": 1,
+    "name": "Túi Cầu Lông Yonex BA92431WEX Black Chính Hãng 2026",
+    "slug": "tui-cu-long-yonex-ba92431wex-black-chinh-hang-2026",
+    "description": "Thương hiệu: Yonex\r\n Màu sắc: Black\r\n Material: PU：PU：66%, Polyester：34％\r\n Size: 75 x 20 x 33cm",
+    "price": "2990000",
+    "cost_price": "0",
+    "compare_at_price": "2990000",
+    "stock_quantity": 555,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:51:16.863Z",
+    "updated_at": "2026-08-17T15:51:16.863Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 18,
+  "fields": {
+    "category": 3,
+    "brand": 1,
+    "name": "Túi Cầu Lông Yonex BA92429WEX Red Chính Hãng 2026",
+    "slug": "tui-cu-long-yonex-ba92429wex-red-chinh-hang-2026",
+    "description": "Thương hiệu: Yonex\r\n Màu sắc: Red\r\n Material: PU：PU：66%, Polyester：34％\r\n Size: 78 x 36 x 36cm",
+    "price": "2889000",
+    "cost_price": "0",
+    "compare_at_price": "2889000",
+    "stock_quantity": 437,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:52:31.182Z",
+    "updated_at": "2026-08-17T15:52:31.182Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 19,
+  "fields": {
+    "category": 4,
+    "brand": 2,
+    "name": "Balo Cầu Lông Victor BR5039VBC Xanh Chính Hãng 2025",
+    "slug": "balo-cu-long-victor-br5039vbc-xanh-chinh-hang-2025",
+    "description": "Thương hiệu: Victor\n Màu sắc: Beacon Blue+Cherries Jubilee\n Material: Polyester\n Size: 32 x 18 x 46.5 cm",
+    "price": "1500000",
+    "cost_price": "0",
+    "compare_at_price": "1900000",
+    "stock_quantity": 665,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:54:35.215Z",
+    "updated_at": "2026-08-21T03:32:34.371Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 20,
+  "fields": {
+    "category": 4,
+    "brand": 2,
+    "name": "Balo cầu lông BR5051CNY Trắng/Đỏ chính hãng 2026",
+    "slug": "balo-cu-long-br5051cny-trngdj-chinh-hang-2026",
+    "description": "Thương hiệu: Victor\n Màu sắc: white / Red\n Material: Da tổng hợp PU + sợi polyester\n Size: 32 x 21 x 48cm",
+    "price": "1599000",
+    "cost_price": "0",
+    "compare_at_price": "1599000",
+    "stock_quantity": 3,
+    "low_stock_threshold": 5,
+    "is_active": true,
+    "created_at": "2026-08-17T15:56:34.743Z",
+    "updated_at": "2026-08-20T23:24:56.840Z"
+  }
+},
+{
+  "model": "products.stocktransaction",
+  "pk": 1,
+  "fields": {
+    "product": 20,
+    "transaction_type": "in",
+    "quantity": 1,
+    "stock_before": 2,
+    "stock_after": 3,
+    "reason": "khách trả hàng",
+    "created_by": 1,
+    "created_at": "2026-08-20T23:24:56.836Z"
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 1,
+  "fields": {
+    "product": 1,
+    "image": "products/vot_cau_long_victor_Thruster_-Ryuga_-II-_Pro-CO26_-China-_Open-_2026-510x680.jpg",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 2,
+  "fields": {
+    "product": 2,
+    "image": "products/vot_cau_long_yonex_astrox_10_new_xanh_duong_chinh_hang_2026-510x589.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 3,
+  "fields": {
+    "product": 3,
+    "image": "products/vot_cau_long_yonex_astrox_10_new_xanh_chinh_hang_2026-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 4,
+  "fields": {
+    "product": 4,
+    "image": "products/vot_cau_long_yonex_astrox_10_new_trang_hong_chinh_hang_2026-768x1024.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 5,
+  "fields": {
+    "product": 5,
+    "image": "products/vot-cau-long-yonex-astrox-88s-pro-2024-chinh-hang-1-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 6,
+  "fields": {
+    "product": 6,
+    "image": "products/arcsaber1clear-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 7,
+  "fields": {
+    "product": 7,
+    "image": "products/arcsaber1feel1-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 8,
+  "fields": {
+    "product": 8,
+    "image": "products/arcsaber1ability-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 9,
+  "fields": {
+    "product": 9,
+    "image": "products/vot_cau_long_Lining-_Axforce-_90_ngua_tet_limited_chinh_hang_2026-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 10,
+  "fields": {
+    "product": 10,
+    "image": "products/z7704566315616_4bbaeacd01a983a6c3f48087d56486e4-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 11,
+  "fields": {
+    "product": 11,
+    "image": "products/vot_cau_long_lining_bladex_800_power_chinh_hang_2026_a-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 12,
+  "fields": {
+    "product": 12,
+    "image": "products/vot_cau_long_Lining-_Axforce-_cannon_pro_ngua_tet_limited_chinh_hang_2026-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 13,
+  "fields": {
+    "product": 13,
+    "image": "products/z7705299843356_ba993822761441b50f2c297aa5b8d313-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 14,
+  "fields": {
+    "product": 14,
+    "image": "products/vot_cau_long_Lining_-Bladex_-880-_Shida_chinh_hang_2026-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 15,
+  "fields": {
+    "product": 15,
+    "image": "products/qua_cau_long_yonex_Yonex-_Aerosensa_10_chinh_hang-510x681.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 16,
+  "fields": {
+    "product": 16,
+    "image": "products/qua_cau_long_yonex_Yonex-_Aerosensa_20_chinh_hang-510x679.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 17,
+  "fields": {
+    "product": 17,
+    "image": "products/tui_cau_long_yonex_BA92431WEX-_Black_chinh_hang_2026-510x680.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 18,
+  "fields": {
+    "product": 18,
+    "image": "products/tui_cau_long_yonex_BA92429WEX_red_chinh_hang_2026-510x679.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 19,
+  "fields": {
+    "product": 19,
+    "image": "products/balo_cau_long_victor_BR5039VBC_xanh_chinh_hang_01-510x680.jpg",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 20,
+  "fields": {
+    "product": 20,
+    "image": "products/balo_cau_long_victor_BR5051CNY_chinh_hang-510x743.jpg",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 22,
+  "fields": {
+    "product": 20,
+    "image": "products/balo_cau_long_victor_BR5039VBC_xanh_chinh_hang_01-510x680_DJtKjJa.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "products.productimage",
+  "pk": 23,
+  "fields": {
+    "product": 20,
+    "image": "products/balo_cau_long_victor_BR5051CNY_chinh_hang-510x743_NIb03XD.jpg",
+    "is_primary": false,
+    "order": 0
+  }
+},
+{
+  "model": "accounts.staffprofile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "role": "owner"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 1,
+  "fields": {
+    "actor": 1,
+    "action": "updated",
+    "entity_type": "product",
+    "entity_id": "19",
+    "summary": "Cập nhật sản phẩm \"Balo Cầu Lông Victor BR5039VBC Xanh Chính Hãng 2025\".",
+    "changes": {
+      "price": {
+        "after": "1500000",
+        "before": "1699000"
+      },
+      "description": {
+        "after": "Thương hiệu: Victor\n Màu sắc: Beacon Blue+Cherries Jubilee\n Material: Polyester\n Size: 32 x 18 x 46.5 cm",
+        "before": "Thương hiệu: Victor\r\n Màu sắc: Beacon Blue+Cherries Jubilee\r\n Material: Polyester\r\n Size: 32 x 18 x 46.5 cm"
+      },
+      "compare_at_price": {
+        "after": "1900000",
+        "before": "1699000"
+      }
+    },
+    "created_at": "2026-08-21T03:32:34.379Z"
+  }
+},
+{
+  "model": "orders.customer",
+  "pk": 1,
+  "fields": {
+    "customer_name": "Nguyễn Văn A",
+    "customer_phone": "0901234567",
+    "note": "",
+    "created_at": "2026-08-21T00:58:13.662Z",
+    "updated_at": "2026-08-21T00:58:13.662Z"
+  }
+},
+{
+  "model": "orders.customer",
+  "pk": 2,
+  "fields": {
+    "customer_name": "fff",
+    "customer_phone": "0212121211",
+    "note": "",
+    "created_at": "2026-08-21T00:58:13.666Z",
+    "updated_at": "2026-08-21T00:58:13.666Z"
+  }
+},
+{
+  "model": "orders.customer",
+  "pk": 3,
+  "fields": {
+    "customer_name": "nghia",
+    "customer_phone": "0969809671",
+    "note": "",
+    "created_at": "2026-08-21T00:58:13.669Z",
+    "updated_at": "2026-08-21T00:58:13.669Z"
+  }
+},
+{
+  "model": "orders.customer",
+  "pk": 4,
+  "fields": {
+    "customer_name": "zzz",
+    "customer_phone": "123",
+    "note": "",
+    "created_at": "2026-08-21T00:58:13.672Z",
+    "updated_at": "2026-08-21T00:58:13.672Z"
+  }
+},
+{
+  "model": "orders.customer",
+  "pk": 5,
+  "fields": {
+    "customer_name": "ff",
+    "customer_phone": "333",
+    "note": "",
+    "created_at": "2026-08-21T00:58:13.675Z",
+    "updated_at": "2026-08-21T00:58:13.675Z"
+  }
+},
+{
+  "model": "orders.customer",
+  "pk": 6,
+  "fields": {
+    "customer_name": "z",
+    "customer_phone": "222",
+    "note": "",
+    "created_at": "2026-08-21T00:58:13.678Z",
+    "updated_at": "2026-08-21T00:58:13.678Z"
+  }
+},
+{
+  "model": "orders.customer",
+  "pk": 7,
+  "fields": {
+    "customer_name": "d",
+    "customer_phone": "3",
+    "note": "",
+    "created_at": "2026-08-21T00:58:13.680Z",
+    "updated_at": "2026-08-21T00:58:13.681Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 1,
+  "fields": {
+    "user": null,
+    "customer_name": "Nguyễn Văn A",
+    "customer_phone": "0901234567",
+    "shipping_address": "123 Đường ABC, Quận 1, TP.HCM",
+    "status": "pending",
+    "payment_method": "cod",
+    "total_amount": "7798000",
+    "applied_discount_code": "",
+    "discount_amount": "0",
+    "internal_note": "",
+    "cancellation_reason": "",
+    "created_at": "2026-08-17T21:14:41.393Z",
+    "updated_at": "2026-08-17T21:14:41.393Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 2,
+  "fields": {
+    "user": null,
+    "customer_name": "Nguyễn Văn A",
+    "customer_phone": "0901234567",
+    "shipping_address": "123 Đường ABC, Quận 1, TP.HCM",
+    "status": "pending",
+    "payment_method": "cod",
+    "total_amount": "7798000",
+    "applied_discount_code": "",
+    "discount_amount": "0",
+    "internal_note": "",
+    "cancellation_reason": "",
+    "created_at": "2026-08-17T21:33:52.572Z",
+    "updated_at": "2026-08-17T21:33:52.572Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 3,
+  "fields": {
+    "user": null,
+    "customer_name": "fff",
+    "customer_phone": "0212121211",
+    "shipping_address": "hcmc",
+    "status": "pending",
+    "payment_method": "cod",
+    "total_amount": "1699000",
+    "applied_discount_code": "",
+    "discount_amount": "0",
+    "internal_note": "",
+    "cancellation_reason": "",
+    "created_at": "2026-08-17T21:40:35.832Z",
+    "updated_at": "2026-08-17T21:40:35.832Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 4,
+  "fields": {
+    "user": null,
+    "customer_name": "nghia",
+    "customer_phone": "0969809671",
+    "shipping_address": "hcmc",
+    "status": "pending",
+    "payment_method": "cod",
+    "total_amount": "2889000",
+    "applied_discount_code": "",
+    "discount_amount": "0",
+    "internal_note": "",
+    "cancellation_reason": "",
+    "created_at": "2026-08-18T09:27:57.985Z",
+    "updated_at": "2026-08-18T09:27:57.985Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 5,
+  "fields": {
+    "user": null,
+    "customer_name": "zzz",
+    "customer_phone": "123",
+    "shipping_address": "hcmc",
+    "status": "pending",
+    "payment_method": "cod",
+    "total_amount": "5778000",
+    "applied_discount_code": "",
+    "discount_amount": "0",
+    "internal_note": "",
+    "cancellation_reason": "",
+    "created_at": "2026-08-18T09:37:07.562Z",
+    "updated_at": "2026-08-18T09:37:07.562Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 6,
+  "fields": {
+    "user": null,
+    "customer_name": "ff",
+    "customer_phone": "333",
+    "shipping_address": "vv",
+    "status": "cancelled",
+    "payment_method": "cod",
+    "total_amount": "2889000",
+    "applied_discount_code": "",
+    "discount_amount": "0",
+    "internal_note": "",
+    "cancellation_reason": "",
+    "created_at": "2026-08-18T09:37:51.255Z",
+    "updated_at": "2026-08-20T19:59:09.751Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 7,
+  "fields": {
+    "user": null,
+    "customer_name": "z",
+    "customer_phone": "222",
+    "shipping_address": "hcm",
+    "status": "completed",
+    "payment_method": "cod",
+    "total_amount": "2889000",
+    "applied_discount_code": "",
+    "discount_amount": "0",
+    "internal_note": "",
+    "cancellation_reason": "",
+    "created_at": "2026-08-18T09:43:47.955Z",
+    "updated_at": "2026-08-20T19:59:07.604Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 8,
+  "fields": {
+    "user": null,
+    "customer_name": "z",
+    "customer_phone": "222",
+    "shipping_address": "dd",
+    "status": "shipping",
+    "payment_method": "cod",
+    "total_amount": "2889000",
+    "applied_discount_code": "",
+    "discount_amount": "0",
+    "internal_note": "",
+    "cancellation_reason": "",
+    "created_at": "2026-08-18T09:47:07.568Z",
+    "updated_at": "2026-08-20T19:59:04.883Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 9,
+  "fields": {
+    "user": null,
+    "customer_name": "d",
+    "customer_phone": "3",
+    "shipping_address": "dd",
+    "status": "confirmed",
+    "payment_method": "cod",
+    "total_amount": "2889000",
+    "applied_discount_code": "",
+    "discount_amount": "0",
+    "internal_note": "",
+    "cancellation_reason": "",
+    "created_at": "2026-08-18T09:47:38.004Z",
+    "updated_at": "2026-08-18T18:33:42.254Z"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 1,
+    "product_name": "Vợt Cầu Lông Victor Thruster Ryuga II Pro CO26 (China Open 2026) New 2026 ( Tặng 01 Cước đan Yonex BG 66 Ultimax trị giá 180.000 vnđ )",
+    "price": "3899000",
+    "cost_price": "0",
+    "quantity": 2
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 2,
+    "product": 1,
+    "product_name": "Vợt Cầu Lông Victor Thruster Ryuga II Pro CO26 (China Open 2026) New 2026 ( Tặng 01 Cước đan Yonex BG 66 Ultimax trị giá 180.000 vnđ )",
+    "price": "3899000",
+    "cost_price": "0",
+    "quantity": 2
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 3,
+    "product": 19,
+    "product_name": "Balo Cầu Lông Victor BR5039VBC Xanh Chính Hãng 2025",
+    "price": "1699000",
+    "cost_price": "0",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 4,
+    "product": 18,
+    "product_name": "Túi Cầu Lông Yonex BA92429WEX Red Chính Hãng 2026",
+    "price": "2889000",
+    "cost_price": "0",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 5,
+    "product": 18,
+    "product_name": "Túi Cầu Lông Yonex BA92429WEX Red Chính Hãng 2026",
+    "price": "2889000",
+    "cost_price": "0",
+    "quantity": 2
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 6,
+    "product": 18,
+    "product_name": "Túi Cầu Lông Yonex BA92429WEX Red Chính Hãng 2026",
+    "price": "2889000",
+    "cost_price": "0",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 7,
+    "product": 18,
+    "product_name": "Túi Cầu Lông Yonex BA92429WEX Red Chính Hãng 2026",
+    "price": "2889000",
+    "cost_price": "0",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 8,
+  "fields": {
+    "order": 8,
+    "product": 18,
+    "product_name": "Túi Cầu Lông Yonex BA92429WEX Red Chính Hãng 2026",
+    "price": "2889000",
+    "cost_price": "0",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 9,
+  "fields": {
+    "order": 9,
+    "product": 18,
+    "product_name": "Túi Cầu Lông Yonex BA92429WEX Red Chính Hãng 2026",
+    "price": "2889000",
+    "cost_price": "0",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.discountcode",
+  "pk": 2,
+  "fields": {
+    "code": "OK",
+    "discount_type": "percentage",
+    "value": "30",
+    "starts_at": "2026-08-21T03:31:00Z",
+    "ends_at": "2026-09-05T03:31:00Z",
+    "max_uses": 222,
+    "used_count": 0,
+    "min_order_amount": "52",
+    "is_active": true,
+    "created_at": "2026-08-21T03:31:35.671Z",
+    "updated_at": "2026-08-21T04:04:30.323Z",
+    "products": [],
+    "categories": []
+  }
+},
+{
+  "model": "orders.discountcode",
+  "pk": 3,
+  "fields": {
+    "code": "NGHIA",
+    "discount_type": "percentage",
+    "value": "50",
+    "starts_at": "2026-08-21T04:06:00Z",
+    "ends_at": "2026-08-25T04:06:00Z",
+    "max_uses": 99,
+    "used_count": 0,
+    "min_order_amount": "100000",
+    "is_active": true,
+    "created_at": "2026-08-21T04:06:55.892Z",
+    "updated_at": "2026-08-21T04:06:55.892Z",
+    "products": [],
+    "categories": []
+  }
+}
+]
